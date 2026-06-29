@@ -1,4 +1,4 @@
-const MAX_SCORE = 150;
+const MAX_SCORE = 100;
 
 const needs = [
   {
@@ -310,7 +310,7 @@ function evaluateRound() {
   const correctCount = selected.filter((needId) => item.answers.includes(needId)).length;
   const roundScore = item.level === 1
     ? (correctCount === 1 ? 10 : 0)
-    : correctCount * 10;
+    : correctCount * 5;
   const badge = correctCount === item.answers.length
     ? "Full Match"
     : correctCount > 0
@@ -333,10 +333,10 @@ function showResult() {
   showScreen("result");
   updateScore();
 
-  if (score >= 130) {
+  if (score >= 90) {
     resultTitle.textContent = "Strategic Motivation Leader";
     resultText.textContent = "Your team identified both simple and complex teacher needs with strong accuracy. This is the core leadership lesson: support becomes powerful when it matches the need behind the behavior.";
-  } else if (score >= 90) {
+  } else if (score >= 70) {
     resultTitle.textContent = "Supportive School Leader";
     resultText.textContent = "Your team restored a strong level of teacher motivation. Review the partial matches to discuss how different needs can appear together in real school situations.";
   } else {
