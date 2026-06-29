@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Teacher Energy Lab | Human Needs Theory</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="game-stage" aria-live="polite">
+        <header class="top-bar">
+          <div class="brand-lockup" aria-label="Teacher Energy Lab">
+            <svg class="brand-icon" viewBox="0 0 64 64" role="img" aria-label="Energy lab icon">
+              <rect x="10" y="12" width="34" height="44" rx="8"></rect>
+              <path d="M44 22h6a6 6 0 0 1 6 6v12a6 6 0 0 1-6 6h-6"></path>
+              <path d="M21 29h12l-7 14h13"></path>
+            </svg>
+            <div>
+              <p class="eyebrow">Human Needs Theory</p>
+              <h1>Teacher Energy Lab</h1>
+            </div>
+          </div>
+          <div class="score-pill">
+            <span>Score</span>
+            <strong id="scoreText">0 / 150</strong>
+          </div>
+        </header>
+
+        <section id="startScreen" class="screen is-active">
+          <div class="start-layout">
+            <div class="hero-copy">
+              <p class="round-label">Two-level classroom challenge</p>
+              <h2>Allocate leadership support with judgment.</h2>
+              <p>
+                Diagnose teacher motivation through Maslow's Hierarchy of Needs.
+                Level 1 asks for the main need. Level 2 asks you to balance two
+                needs at the same time using limited Leadership Resources.
+              </p>
+              <button id="startButton" class="primary-action" type="button">
+                Enter the Lab
+              </button>
+            </div>
+            <div class="lab-preview" aria-label="Maslow energy layers">
+              <div class="preview-card preview-growth">
+                <span>Growth Energy</span>
+                <strong>Self-Actualization</strong>
+              </div>
+              <div class="preview-card preview-recognition">
+                <span>Recognition Energy</span>
+                <strong>Esteem</strong>
+              </div>
+              <div class="preview-card preview-connection">
+                <span>Connection Energy</span>
+                <strong>Love & Belonging</strong>
+              </div>
+              <div class="preview-card preview-safety">
+                <span>Safety Energy</span>
+                <strong>Safety</strong>
+              </div>
+              <div class="preview-card preview-basic">
+                <span>Basic Energy</span>
+                <strong>Physiological</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="playScreen" class="screen">
+          <div class="progress-row">
+            <div>
+              <p class="round-label" id="levelText">Level 1: Identify the Main Need</p>
+              <h2 id="caseTitle">Teacher case</h2>
+              <p class="round-status" id="roundText">Question 1 of 10</p>
+            </div>
+            <div class="energy-meter" aria-label="Teacher motivation battery">
+              <span>Motivation battery</span>
+              <div class="meter-track">
+                <div id="energyFill" class="meter-fill"></div>
+              </div>
+            </div>
+          </div>
+
+          <article class="case-panel">
+            <div class="teacher-avatar" aria-hidden="true">
+              <svg viewBox="0 0 90 90">
+                <circle cx="45" cy="30" r="17"></circle>
+                <path d="M18 78c4-19 17-29 27-29s23 10 27 29"></path>
+                <path d="M24 68h42"></path>
+              </svg>
+            </div>
+            <p id="caseText"></p>
+          </article>
+
+          <section class="resource-lab" aria-label="Leadership resource allocation">
+            <div class="resource-header">
+              <div>
+                <p class="choice-title" id="allocationTitle">Allocate 1 Leadership Resource</p>
+                <p class="helper-text" id="allocationHint">Choose the teacher's strongest unmet need.</p>
+              </div>
+              <div class="resource-bank">
+                <span>Resources left</span>
+                <strong id="resourcesLeft">1</strong>
+              </div>
+            </div>
+            <div id="allocators" class="allocators-grid"></div>
+            <div class="action-row">
+              <button id="resetRoundButton" class="ghost-action" type="button">Reset Resources</button>
+              <button id="submitButton" class="primary-action" type="button" disabled>
+                Activate Support
+              </button>
+            </div>
+          </section>
+
+          <section id="feedback" class="feedback-panel" hidden>
+            <div class="result-badge" id="resultBadge">Full Match</div>
+            <div class="feedback-content">
+              <div>
+                <p class="feedback-label">Your Allocation</p>
+                <p id="allocationText"></p>
+              </div>
+              <div>
+                <p class="feedback-label">Best Match</p>
+                <p id="bestMatchText"></p>
+              </div>
+              <div>
+                <p class="feedback-label">Why These Needs Matter</p>
+                <p id="feedbackText"></p>
+              </div>
+              <div>
+                <p class="feedback-label">Leadership Move</p>
+                <p id="actionText"></p>
+              </div>
+            </div>
+            <button id="nextButton" class="secondary-action" type="button">
+              Next Case
+            </button>
+          </section>
+        </section>
+
+        <section id="resultScreen" class="screen">
+          <div class="result-layout">
+            <div>
+              <p class="round-label">Leadership resource report</p>
+              <h2 id="resultTitle">Challenge complete</h2>
+              <p id="resultText"></p>
+              <button id="restartButton" class="primary-action" type="button">
+                Play Again
+              </button>
+            </div>
+            <div class="review-list" aria-label="Five human needs review">
+              <div><strong>Basic Energy</strong><span>Physiological Needs: salary, rest, workload, resources</span></div>
+              <div><strong>Safety Energy</strong><span>Safety Needs: stability, clear policy, safe environment</span></div>
+              <div><strong>Connection Energy</strong><span>Love & Belonging Needs: teamwork, PLC, school culture</span></div>
+              <div><strong>Recognition Energy</strong><span>Esteem Needs: respect, achievement, promotion, status</span></div>
+              <div><strong>Growth Energy</strong><span>Self-Actualization Needs: creativity, innovation, professional growth</span></div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
